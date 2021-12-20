@@ -38,4 +38,6 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
         productList.add(product)
         notifyDataSetChanged()
     }
+
+
 }
