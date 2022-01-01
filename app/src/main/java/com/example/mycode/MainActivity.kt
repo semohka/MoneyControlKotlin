@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Adapter
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mycode.data.Product
 import com.example.mycode.data.ProductDatabase
+import com.example.mycode.data.Shop
+import com.example.mycode.data.ShopRepository
 
 import com.example.mycode.databinding.ActivityMainBinding
 import java.util.*
@@ -19,6 +22,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     lateinit var bindingClass: ActivityMainBinding
     private val adapter = ProductAdapter()
+    private  val adapterShop = ShopAdapter()
 
     private val imageIdList = listOf(R.drawable.cans, R.drawable.detail)
     private  var index = 0
@@ -47,15 +51,21 @@ class MainActivity : AppCompatActivity() {
         init()
     }
 
+    override fun onResume() {
+        super.onResume()
+        bindingClass.rcView.adapter = adapterShop
+        val repository = ShopRepository(ProductDatabase.getDatabase(this).shopDao())
+        adapterShop.shopList = repository.readAllData
+    }
+
+
     private fun init(){
         bindingClass.apply {
             rcView.layoutManager = LinearLayoutManager(this@MainActivity)
-            rcView.adapter = adapter
+//            rcView.adapter = adapter
             buttonAdd.setOnClickListener {
-                if (index > 1) index = 0
-                val product = Product(imageIdList[index],"продукт", 100, 2, "вкусВилл")
-                adapter.addProduct(product)
-                index++
+                val intent = Intent(this@MainActivity, AddActivity::class.java)
+                startActivity(intent)
 
             }
         }
@@ -92,9 +102,5 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, AddActivity::class.java)
         intent.putExtra("key", "Введите новый товар")
         startActivityForResult(intent, 100)
-    }
-
-    fun onClickList(view: View){
-
     }
 }

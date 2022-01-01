@@ -11,6 +11,6 @@ interface ProductDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun create(product: Product)
 
-    @Query("SELECT * FROM product_data ORDER BY id ASC")
+    @Query("SELECT * FROM product_data ORDER BY id DESC")
     fun readAllData(): List<Product>
 }

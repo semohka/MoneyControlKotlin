@@ -9,8 +9,8 @@ import androidx.room.Query
 @Dao
 interface ShopDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun create(shop: Shop)
+     fun create(shop: Shop)
 
-    @Query("SELECT * FROM shops ORDER BY id ASC")
+    @Query("SELECT * FROM shops ORDER BY id DESC")
     fun readAllData(): List<Shop>
 }

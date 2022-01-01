@@ -7,7 +7,7 @@
     tools:context=".AddActivity">
 
     <EditText
-        android:id="@+id/product"
+        android:id="@+id/shop"
         android:layout_width="343dp"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
@@ -22,7 +22,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/saveShop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -32,7 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product"
+        app:layout_constraintTop_toBottomOf="@+id/shop"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="Добавить магазин"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
