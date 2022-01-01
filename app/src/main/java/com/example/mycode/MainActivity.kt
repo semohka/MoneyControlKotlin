@@ -9,6 +9,8 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mycode.data.Product
+import com.example.mycode.data.ProductDatabase
 
 import com.example.mycode.databinding.ActivityMainBinding
 import java.util.*
@@ -24,6 +26,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        ProductDatabase.getDatabase(this)
+
         bindingClass = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bindingClass.root)
 //        var receipt = emptyArray<String>()

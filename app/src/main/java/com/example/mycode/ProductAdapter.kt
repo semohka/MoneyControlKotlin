@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mycode.data.Product
 import com.example.mycode.databinding.ProductItemBinding
 
 class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
@@ -16,7 +17,7 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
             prodTitle.text = product.title
             prodPrice.text = product.price.toString()
             prodShop.text = product.shop
-            prodWeigth.text = product.weigth.toString()
+            prodWeigth.text = product.weight.toString()
 
         }
     }
@@ -38,6 +39,4 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
         productList.add(product)
         notifyDataSetChanged()
     }
-
-
 }
