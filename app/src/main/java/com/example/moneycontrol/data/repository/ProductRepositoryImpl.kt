@@ -10,6 +10,6 @@ class ProductRepositoryImpl : ProductRepository {
     }
 
     override fun getProduct(): Product {
-        return Product(title = "Молоко", price = "50")
+        return Product(title = "Молоко", price = 50.0)
     }
 }
