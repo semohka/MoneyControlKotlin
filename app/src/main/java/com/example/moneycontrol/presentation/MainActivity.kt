@@ -2,6 +2,7 @@ package com.example.moneycontrol.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moneycontrol.R
 import com.example.moneycontrol.data.repository.ProductRepositoryImpl
@@ -28,20 +29,30 @@ class MainActivity : AppCompatActivity() {
 
         var arrayProductList: Array<Product> = emptyArray()
 
+
+        val recyclerView: RecyclerView = findViewById(R.id.productList)
+        recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+
         saveProduct.setOnClickListener {
             val textProduct = binding.product.text.toString()
             val textPrice = binding.price.text.toString()
             val product = Product(title = textProduct, price = textPrice.toDouble())
             arrayProductList += arrayOf(product)
+            val productAdapter = ProductAdapter(arrayProductList)
+            recyclerView.adapter = productAdapter
+
+            binding.product.text.clear()
+            binding.product.requestFocus()
+            binding.price.text.clear()
+
 //            val result: Boolean = saveProductUseCase.execute(param = params)
 //            binding.productList.text = "$textProduct $textPrice"
 //            val productName = getProductListUseCase.execute()
 //            productList.text = "${productName.title} ${productName.price}"
+
         }
 
-        val productAdapter = ProductAdapter(arrayProductList)
-        val recyclerView: RecyclerView = findViewById(R.id.productList)
-        recyclerView.adapter = productAdapter
+
     }
 
 }
