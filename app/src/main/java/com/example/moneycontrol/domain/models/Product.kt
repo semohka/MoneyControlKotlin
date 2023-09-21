@@ -1,3 +1,3 @@
 package com.example.moneycontrol.domain.models
 
-class Product(val title: String, val price: Double)
+data class Product(val title: String, val price: Double)
