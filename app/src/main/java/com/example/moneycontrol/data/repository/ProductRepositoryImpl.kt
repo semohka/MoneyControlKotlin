@@ -10,6 +10,28 @@ class ProductRepositoryImpl : ProductRepository {
     }
 
     override fun getProduct(): Product {
-        return Product(title = "Молоко", price = 50.0)
+        return Product(
+            id = 1,
+            title = "Молоко",
+            priceOfOne = 10,
+            totalPrice = 20,
+            count = 2,
+            comment = "qwerty",
+            receiptId = 1,
+            categoryId = 1
+        )
+    }
+
+    override fun getProductById(id: Int): Product {
+        return Product(
+            id = 1,
+            title = "Молоко",
+            priceOfOne = 10,
+            totalPrice = 20,
+            count = 2,
+            comment = "qwerty",
+            receiptId = 1,
+            categoryId = 1
+        )
     }
 }

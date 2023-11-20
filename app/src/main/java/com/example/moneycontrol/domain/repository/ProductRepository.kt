@@ -7,4 +7,6 @@ interface ProductRepository {
     fun saveProduct(saveParam: Product): Boolean
 
     fun getProduct(): Product
+
+    fun getProductById(id: Int): Product
 }
