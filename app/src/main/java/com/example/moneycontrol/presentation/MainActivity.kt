@@ -37,8 +37,8 @@ class MainActivity : AppCompatActivity() {
         saveProduct.setOnClickListener {
             val textProduct = binding.product.text.toString()
             val textPrice = binding.price.text.toString()
-            val product = Product(title = textProduct, price = textPrice.toDouble())
-            arrayProductList += arrayOf(product)
+//            val product = Product(title = textProduct, price = textPrice.toDouble())
+//            arrayProductList += arrayOf(product)
             productAdapter.submitList(arrayProductList)
 
 

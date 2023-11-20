@@ -17,7 +17,7 @@ class ProductAdapter :
 
         fun bind(product: Product) {
             binding.titleItem.text = product.title
-            binding.priceItem.text = product.price.toString()
+//            binding.priceItem.text = product.price.toString()
         }
     }
 
